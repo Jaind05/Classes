@@ -1,24 +1,24 @@
+#include <cstring>
+#include "digital_media.h"
 #include "music.h"
-
-
-music::music(){
-}
-virtual char* music::getpublisher(){
+//music::music(){
+//}
+char* music::getpublisher(){
   return publisher;
 }
-virtual float music::getduration(){
+int music::getduration(){
   return duration;
 }
-virtual void music::setduration(float x){
+void music::setduration(int x){
   duration = x;
 }
-virtual void music::setpublisher(char* x){
+void music::setpublisher(char* x){
   strcpy(publisher, x);
 }
-virtual char* music::getartist(){
+char* music::getartist(){
   return artist;
 }
-virtual void music::setartist(char* y){
+void music::setartist(char* y){
   strcpy(artist, y);
 }
 

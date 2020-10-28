@@ -1,25 +1,27 @@
+#include <cstring>
+#include "digital_media.h"
 #include "movie.h"
 
 
-movie::movie(){
-}
-virtual float movie::getrating(){
+//movie::movie(){
+//}
+float movie::getrating(){
   return rating;
 }
-virtual float movie::getduration(){
+int movie::getduration(){
   return duration;
 }
-virtual void movie::setduration(float x){
+void movie::setduration(int x){
   duration = x;
 }
-virtual void movie::setrating(Float x){
+void movie::setrating(float x){
   rating = x;
 }
-virtual char* movie::getdirector(){
-  return director
+char* movie::getdirector(){
+  return director;
 }
-virtual void movie::setdirector(char* y){
-  strcpy(director, y)
+void movie::setdirector(char* y){
+  strcpy(director, y);
 }
 
 

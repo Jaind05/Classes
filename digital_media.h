@@ -1,21 +1,28 @@
-//using namespace std;
+#ifndef DIGITAL_MEDIA
+#define DIGITAL_MEDIA
 
-class digital_media {
+//#include "video_games.h"
+//#include "music.h"
+//#include "movie.h"
+
+using namespace std;
+
+class digital_media{
 public:
   char* getTitle();
   int getYear();
   void setTitle(char *);
   void setYear(int );
-  char* getpublisher();
-  float getrating();
-  void setpublisher(char* );
-  void setrating(float );
-  float getduration();
-  char* getartist();
-  void setduration(int );
-  void setartist(char *);
- char* getdirector();
-  void setdirector(char *);
+  virtual char* getpublisher();
+  virtual float getrating();
+  virtual void setpublisher(char* );
+  virtual void setrating(float );
+  virtual int getduration();
+  virtual char* getartist();
+  virtual void setduration(int );
+  virtual void setartist(char *);
+  virtual char* getdirector();
+  virtual void setdirector(char *);
 
   
 private:
@@ -24,3 +31,6 @@ private:
 
 
 };
+
+
+#endif

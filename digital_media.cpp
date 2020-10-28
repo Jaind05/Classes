@@ -1,11 +1,14 @@
+#include <cstring>
 #include "digital_media.h"
+
+
 using namespace std;
 
-digital_media::digital_media(){
-}
+//digital_media::digital_media(){
+//}
 
-char** digital_media::getTitle(){
-  return &title;
+char* digital_media::getTitle(){
+  return title;
 }
 
 int digital_media::getYear(){
@@ -20,8 +23,8 @@ void digital_media::setYear(int y){
   year = y;
 }
 
-
-virtual char** digital_media::getpublisher(){
+/*
+virtual char* digital_media::getpublisher(){
 
 }
 virtual float digital_media::getrating(){
@@ -52,7 +55,7 @@ virtual void digital_media::setartist(char *x){
 
 }
 
-
+*/
 
 
 

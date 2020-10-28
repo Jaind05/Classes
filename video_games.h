@@ -1,12 +1,16 @@
+#ifndef VIDEO_GAMES
+#define VIDEO_GAMES
+
 //#include "digital_media.h"
 
-class video_games : public digital_media
-{
+
+class video_games : public digital_media{
+
  public:
-  char** getpublisher();
-  float getRating();
-  void setpublisher(char* );
-  void setrating(float );
+  virtual char* getpublisher();
+  virtual float getrating();
+  virtual void setpublisher(char* );
+  virtual void setrating(float );
 
  private:
   char publisher[100];
@@ -14,3 +18,4 @@ class video_games : public digital_media
 };
 
 
+#endif //ending video_games

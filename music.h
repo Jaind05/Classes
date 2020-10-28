@@ -1,22 +1,25 @@
+#ifndef MUSIC
+#define MUSIC
+
 //#include "digital_media.h"
 
 
 class music : public digital_media
 {
  public:
-  char* getpublisher();
-  float getduration();
-  char* getartist();
-  void setpublisher(char *);
-  void setduration(int);
-  void setartist(char *);
+  virtual char* getpublisher();
+  virtual int getduration();
+  virtual char* getartist();
+  virtual void setpublisher(char *);
+  virtual void setduration(int);
+  virtual void setartist(char *);
 
  private:
   char publisher [100];
-  float duration;
+  int duration;
   char artist [100];
 };
 
 
-
+#endif
 
