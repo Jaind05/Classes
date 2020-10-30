@@ -3,8 +3,10 @@
 #include "movie.h"
 
 
-//movie::movie(){
-//}
+movie::movie(){
+  setid(2);
+
+}
 float movie::getrating(){
   return rating;
 }

@@ -1,8 +1,9 @@
 #include <cstring>
 #include "digital_media.h"
 #include "music.h"
-//music::music(){
-//}
+music::music(){
+  setid(1);
+}
 char* music::getpublisher(){
   return publisher;
 }

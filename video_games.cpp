@@ -3,8 +3,9 @@
 #include "video_games.h"
 
 
-//video_games::video_games(){
-//}
+video_games::video_games(){
+  setid(0);
+}
 char* video_games::getpublisher(){
   return publisher;
 }

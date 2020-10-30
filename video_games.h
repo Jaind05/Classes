@@ -1,16 +1,17 @@
 #ifndef VIDEO_GAMES
 #define VIDEO_GAMES
 
-//#include "digital_media.h"
+#include "digital_media.h"
 
 
 class video_games : public digital_media{
-
+  //add publisher id = 0
  public:
-  virtual char* getpublisher();
-  virtual float getrating();
-  virtual void setpublisher(char* );
-  virtual void setrating(float );
+  video_games();
+  char* getpublisher();
+  float getrating();
+  void setpublisher(char* );
+  void setrating(float );
 
  private:
   char publisher[100];

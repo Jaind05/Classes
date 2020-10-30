@@ -1,17 +1,20 @@
 #ifndef MOVIE
 #define MOVIE
 
-//#include "digital_media.h"
+#include "digital_media.h"
 
 class movie : public digital_media
 {
+  //add constructor {id = 1}
+ 
  public:
-  virtual char* getdirector();
-  virtual int getduration();
-  virtual float getrating();
-  virtual void setrating(float);
-  virtual void setduration(int);
-  virtual void setdirector(char *);
+  movie();
+  char* getdirector();
+  int getduration();
+  float getrating();
+  void setrating(float);
+  void setduration(int);
+  void setdirector(char *);
 
  private:
   char director [100];

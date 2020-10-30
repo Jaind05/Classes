@@ -9,7 +9,7 @@ using namespace std;
 
 int main() {
 
-  digital_media *dm_db[1000];
+  digital_media *dm_db[100] = {NULL};
   
     
   bool stop = false; //boolean to keep track if the user is still using the application
@@ -20,7 +20,7 @@ int main() {
 	cin >> input;
 	if(strcmp(input,"ADD")==0){
 
-	  cout << "Please enter the type of the digital media" << endl;
+	  cout << "Please enter the type of the digital media (Videogame, Music, Movie)" << endl;
 	  
 	  bool running = true;
 	  while(running == true){
@@ -29,10 +29,10 @@ int main() {
 
 	    cin >> input;
 
-	    if (strcmp(input, "Video Game")){
+	    if (strcmp(input, "Videogame") == 0){
 	      running = false;
 	      video_games* vg = new video_games();
-	      dm_db[i] = vg;
+	      //dm_db[i] = vg; // instead of this make new video game
 
 	      char temppublisher[100];
 	      float temprating;
@@ -46,15 +46,16 @@ int main() {
 	      cout << "What is the rating of the videogame" << endl;
 	      cin >> temprating;
 	      
-	      dm_db[i]->setTitle(temptitle);
-	      dm_db[i]->setYear(tempyear);
-	      dm_db[i]->setpublisher(temppublisher);
-	      dm_db[i]->setrating(temprating);
+	      vg->setTitle(temptitle);
+	      vg->setYear(tempyear);
+	      vg->setpublisher(temppublisher);
+	      vg->setrating(temprating);
+	      dm_db[i] = vg;
 	    }
-	    else if(strcmp(input, "Music")){
+	    else if(strcmp(input, "Music") == 0){
 	      running = false;
 	      music* mu = new music();
-              dm_db[i] = mu;
+              //dm_db[i] = mu; //instead of this make new music
 
 	      char temppublisher[100];
 	      char tempartist[100];
@@ -71,18 +72,18 @@ int main() {
 	      cout << "What is the duration of this music" << endl;
               cin >> duration;
 
-              dm_db[i]->setTitle(temptitle);
-              dm_db[i]->setYear(tempyear);
-              dm_db[i]->setpublisher(temppublisher);
-              dm_db[i]->setartist(tempartist);
-	      dm_db[i]->setduration(duration);
-
+              mu->setTitle(temptitle);
+              mu->setYear(tempyear);
+              mu->setpublisher(temppublisher);
+              mu->setartist(tempartist);
+	      mu->setduration(duration);
+	      dm_db[i] = mu;
 
 	    }
-	    else if(strcmp(input, "Movie")){
+	    else if(strcmp(input, "Movie") ==0){
 	      running = false;
 	      movie* mv = new movie();
-              dm_db[i] = mv;
+              //dm_db[i] = mv;//instead of this make new movie
             
             
               char tempdirector[100];
@@ -100,12 +101,12 @@ int main() {
 	      cout << "What is the duration of the movie" << endl;
               cin >> duration;
 
-              dm_db[i]->setTitle(temptitle);
-              dm_db[i]->setYear(tempyear);
-              dm_db[i]->setdirector(tempdirector);
-              dm_db[i]->setrating(temprating);
-	      dm_db[i]->setduration(duration);
-
+              mv->setTitle(temptitle);
+              mv->setYear(tempyear);
+              mv->setdirector(tempdirector);
+              mv->setrating(temprating);
+	      mv->setduration(duration);
+	      dm_db[i] = mv;
 	    }
 	    else{
 	      running = true;
@@ -118,6 +119,40 @@ int main() {
 	  cout << "Please enter student id of student you would like to delete" << endl;
 	}
 	else if(strcmp(input,"SEARCH")==0){
+	  cout << "would you like to search by title or year?" << endl;
+	  cin >> input;
+	  if (strcmp(input,"title")==0){
+	    cout << "What title are you looking for?" << endl;
+	    cin >> input;
+	    for(int i = 0; i < 99; i++){
+	      if(dm_db[i] != NULL){
+		cout << i << endl;
+		if(strcmp(dm_db[i]->getTitle(), input) == 0){
+		  if(dm_db[i]->getid() == 0){
+		    //videogame
+		    video_games* vd;
+		    vd = (video_games*)dm_db[i];
+		    cout << vd->getTitle() << ", " << vd->getYear() << ", " << vd ->getpublisher() << ", " << vd -> getrating() << endl;
+		    
+		  }
+		  else if(dm_db[i]->getid() == 1){
+		    music* mu;
+		    mu = (music*)dm_db[i];
+		  }
+		  else if(dm_db[i]->getid() == 2){
+		    movie* mv;
+		    mv = (movie*)dm_db[i];
+		  }
+		}
+	      }
+
+	    }
+	  }
+	  else if (strcmp(input,"year")){
+
+	  }
+	  
+	  
 	}
 	else if(strcmp(input,"QUIT")==0){
 	  stop = true; //stops while loop

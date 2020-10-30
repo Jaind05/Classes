@@ -22,6 +22,12 @@ void digital_media::setTitle(char* x){
 void digital_media::setYear(int y){
   year = y;
 }
+void digital_media::setid(int y){
+  id = y;
+}
+int digital_media::getid(){
+  return id;
+}
 
 /*
 virtual char* digital_media::getpublisher(){
