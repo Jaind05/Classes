@@ -7,6 +7,9 @@ movie::movie(){
   setid(2);
 
 }
+movie::~movie(){
+  setid(-1);
+}
 float movie::getrating(){
   return rating;
 }

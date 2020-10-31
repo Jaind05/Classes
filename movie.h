@@ -9,6 +9,7 @@ class movie : public digital_media
  
  public:
   movie();
+  ~movie();
   char* getdirector();
   int getduration();
   float getrating();

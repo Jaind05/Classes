@@ -8,6 +8,7 @@ class video_games : public digital_media{
   //add publisher id = 0
  public:
   video_games();
+  ~video_games();
   char* getpublisher();
   float getrating();
   void setpublisher(char* );

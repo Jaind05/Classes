@@ -4,6 +4,9 @@
 music::music(){
   setid(1);
 }
+music::~music(){
+  setid(-1);
+}
 char* music::getpublisher(){
   return publisher;
 }

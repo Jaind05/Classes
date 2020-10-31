@@ -116,7 +116,112 @@ int main() {
 	  i++;
 	}
 	else if(strcmp(input,"DELETE")==0){
-	  cout << "Please enter student id of student you would like to delete" << endl;
+	   cout << "would you like to delete a title or year?" << endl;
+          cin >> input;
+          if (strcmp(input,"title")==0){
+            cout << "What title do you want to delete?" << endl;
+            cin >> input;
+	    for(int i = 0; i < 99; i++){
+	      if(dm_db[i] != NULL){
+	      if(strcmp(input, dm_db[i]->getTitle()) == 0){
+	       	 if(dm_db[i]->getid() == 0){
+		    //videogame
+                    video_games* vd;
+                    vd = (video_games*)dm_db[i];
+                    cout << "Are you sue you want to delete: "<< vd->getTitle() << ", " << vd->getYear() << ", " << vd ->getpublisher() << ", " << vd -> getrating() << endl;
+		    cin >> input;
+		    if(strcmp(input, "yes")==0){
+		    delete vd;
+		    dm_db[i] = NULL;
+		    }
+
+                  }
+                  else if(dm_db[i]->getid() == 1){
+                    music* mu;
+                    mu = (music*)dm_db[i];
+                    cout <<"Are you sure you want to delete: "<< mu->getTitle() << ", " << mu->getYear() << ", " << mu ->getartist() << ", " << mu -> getduration() << ", " << mu -> getpublisher() << endl;
+		    cin >> input;
+		    if (strcmp(input, "yes")==0){
+		    delete mu;
+		    dm_db[i] = NULL;
+		    }
+
+                  }
+                  else if(dm_db[i]->getid() == 2){
+                    movie* mv;
+                    mv = (movie*)dm_db[i];
+		    cout <<"Are you sure you want to delete: " <<  mv->getTitle() << ", " << mv->getYear() << ", " << mv ->getdirector() << ", " << mv -> getrating() << ", " << mv -> getduration() << endl;
+		    cin >> input;
+		    if(strcmp(input, "yes")==0){
+		    delete mv;
+		    dm_db[i] = NULL;
+		    }
+                  }
+	      }
+
+
+		
+		
+	      }
+
+	      
+	      
+	    }
+          }
+          else if (strcmp(input,"year")){
+	    cout << "What year do you want to delete?" << endl;
+            cin >> input;
+            for(int i = 0; i < 99; i++){
+              if(dm_db[i] != NULL){
+		int intput;
+		cin >> intput;
+		if(intput == (dm_db[i]->getYear())){
+                 if(dm_db[i]->getid() == 0){
+                    //videogame
+                    video_games* vd;
+                    vd = (video_games*)dm_db[i];
+                    cout << "Are you sue you want to delete: "<< vd->getTitle() << ", " << vd->getYear() << ", " << vd ->getpublisher() << ", " << vd -> getrating() << endl;
+                    cin >> input;
+                    if(strcmp(input, "yes")==0){
+                    delete vd;
+                    dm_db[i] = NULL;
+                    }
+
+                  }
+                  else if(dm_db[i]->getid() == 1){
+                    music* mu;
+                    mu = (music*)dm_db[i];
+                    cout <<"Are you sure you want to delete: "<< mu->getTitle() << ", " << mu->getYear() << ", " << mu ->getartist() << ", " << mu -> getduration() << ", " << mu -> getpublisher() << endl;
+                    cin >> input;
+                    if (strcmp(input, "yes")==0){
+                    delete mu;
+                    dm_db[i] = NULL;
+                    }
+
+                  }
+                  else if(dm_db[i]->getid() == 2){
+                    movie* mv;
+                    mv = (movie*)dm_db[i];
+                    cout <<"Are you sure you want to delete: " << mv->getTitle() << ", " << mv->getYear() << ", " << mv ->getdirector() << ", " << mv -> getrating() << ", " << mv -> getduration() << endl;
+                    cin >> input;
+                    if(strcmp(input, "yes")==0){
+                    delete mv;
+                    dm_db[i] = NULL;
+                    }
+                  }
+              }
+
+
+
+
+              }
+
+
+
+            }
+
+          }
+
 	}
 	else if(strcmp(input,"SEARCH")==0){
 	  cout << "would you like to search by title or year?" << endl;
@@ -138,10 +243,13 @@ int main() {
 		  else if(dm_db[i]->getid() == 1){
 		    music* mu;
 		    mu = (music*)dm_db[i];
+		    cout << mu->getTitle() << ", " << mu->getYear() << ", " << mu ->getartist() << ", " << mu -> getduration() << ", " << mu -> getpublisher() << endl;
+		     
 		  }
 		  else if(dm_db[i]->getid() == 2){
 		    movie* mv;
 		    mv = (movie*)dm_db[i];
+		    cout << mv->getTitle() << ", " << mv->getYear() << ", " << mv ->getdirector() << ", " << mv -> getrating() << ", " << mv -> getduration() << endl;
 		  }
 		}
 	      }
@@ -149,6 +257,35 @@ int main() {
 	    }
 	  }
 	  else if (strcmp(input,"year")){
+	    cout << "What year are you looking for?" << endl;
+	    int intput;
+	    cin >> intput;
+            for(int i = 0; i < 99; i++){
+              if(dm_db[i] != NULL){
+                cout << i << endl;
+                if(intput == (dm_db[i]->getYear())){
+                  if(dm_db[i]->getid() == 0){
+                    //videogame
+                    video_games* vd;
+                    vd = (video_games*)dm_db[i];
+                    cout << vd->getTitle() << ", " << vd->getYear() << ", " << vd ->getpublisher() << ", " << vd -> getrating() << endl;
+
+                  }
+                  else if(dm_db[i]->getid() == 1){
+                    music* mu;
+                    mu = (music*)dm_db[i];
+                    cout << mu->getTitle() << ", " << mu->getYear() << ", " << mu ->getartist() << ", " << mu -> getduration() << ", " << mu -> getpublisher() << endl;
+
+                  }
+                  else if(dm_db[i]->getid() == 2){
+                    movie* mv;
+                    mv = (movie*)dm_db[i];
+                    cout << mv->getTitle() << ", " << mv->getYear() << ", " << mv ->getdirector() << ", " << mv -> getrating() << ", " << mv -> getduration() << endl;
+                  }
+                }
+              }
+
+            }
 
 	  }
 	  
@@ -157,7 +294,7 @@ int main() {
 	else if(strcmp(input,"QUIT")==0){
 	  stop = true; //stops while loop
 	    for (int x = 0;x<i; x++){ //for loop to free all Students
-	      free(dm_db[x]);
+	      delete dm_db[x];
 	    }
 	}
 	else{

@@ -8,6 +8,7 @@ class music : public digital_media
   //add constructor id = 2
  public:
   music();
+  ~music();
   char* getpublisher();
   int getduration();
   char* getartist();
