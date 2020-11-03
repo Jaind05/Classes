@@ -1,3 +1,10 @@
+
+// Dhruv Jain
+// Classes Assignment
+// 11/2/2020
+// Creates and allows manipulation of a media data base. 
+
+
 #include <iostream>
 #include <cstring>
 #include "digital_media.h"
@@ -7,18 +14,18 @@
 
 using namespace std;
 
-int main() {
+int main() { //Main method
 
-  digital_media *dm_db[100] = {NULL};
+  digital_media *dm_db[100] = {NULL}; //Array of pointers to digital_media objects
   
     
   bool stop = false; //boolean to keep track if the user is still using the application
-  int i = 0; //keeps track of how many students are made
+  int i = 0; //keeps track of how many objects are made
   char input[30]; //char to track what the user wants to do
-    while (stop == false){ 
+  while (stop == false){ //While game is still running
 	cout << "Please enter ADD, SEARCH, or DELETE. If you would like to close the application enter QUIT" << endl;
 	cin >> input;
-	if(strcmp(input,"ADD")==0){
+	if(strcmp(input,"ADD")==0){ //If the user wants to add
 
 	  cout << "Please enter the type of the digital media (Videogame, Music, Movie)" << endl;
 	  
@@ -29,9 +36,9 @@ int main() {
 
 	    cin >> input;
 
-	    if (strcmp(input, "Videogame") == 0){
+	    if (strcmp(input, "Videogame") == 0){ //if they want to create a video game
 	      running = false;
-	      video_games* vg = new video_games();
+	      video_games* vg = new video_games(); //creates new videogame
 	      //dm_db[i] = vg; // instead of this make new video game
 
 	      char temppublisher[100];
@@ -46,15 +53,15 @@ int main() {
 	      cout << "What is the rating of the videogame" << endl;
 	      cin >> temprating;
 	      
-	      vg->setTitle(temptitle);
-	      vg->setYear(tempyear);
-	      vg->setpublisher(temppublisher);
-	      vg->setrating(temprating);
+	      vg->setTitle(temptitle); //sets title
+	      vg->setYear(tempyear); //sets year
+	      vg->setpublisher(temppublisher); //sets publisher
+	      vg->setrating(temprating); //sets rating
 	      dm_db[i] = vg;
 	    }
-	    else if(strcmp(input, "Music") == 0){
+	    else if(strcmp(input, "Music") == 0){ //if user wants to create music object
 	      running = false;
-	      music* mu = new music();
+	      music* mu = new music(); //creates new music
               //dm_db[i] = mu; //instead of this make new music
 
 	      char temppublisher[100];
@@ -72,17 +79,17 @@ int main() {
 	      cout << "What is the duration of this music" << endl;
               cin >> duration;
 
-              mu->setTitle(temptitle);
-              mu->setYear(tempyear);
-              mu->setpublisher(temppublisher);
-              mu->setartist(tempartist);
-	      mu->setduration(duration);
+              mu->setTitle(temptitle); //sets title
+              mu->setYear(tempyear); //sets year
+              mu->setpublisher(temppublisher); //sets publisher
+              mu->setartist(tempartist); //sets artist
+	      mu->setduration(duration); //sets duration
 	      dm_db[i] = mu;
 
 	    }
-	    else if(strcmp(input, "Movie") ==0){
+	    else if(strcmp(input, "Movie") ==0){ //if user wants to create a movie object
 	      running = false;
-	      movie* mv = new movie();
+	      movie* mv = new movie(); //creates new movie
               //dm_db[i] = mv;//instead of this make new movie
             
             
@@ -101,11 +108,11 @@ int main() {
 	      cout << "What is the duration of the movie" << endl;
               cin >> duration;
 
-              mv->setTitle(temptitle);
-              mv->setYear(tempyear);
-              mv->setdirector(tempdirector);
-              mv->setrating(temprating);
-	      mv->setduration(duration);
+              mv->setTitle(temptitle); //sets title
+              mv->setYear(tempyear); //sets year
+              mv->setdirector(tempdirector); //sets director
+              mv->setrating(temprating); //sets rating
+	      mv->setduration(duration); //sets duration
 	      dm_db[i] = mv;
 	    }
 	    else{
@@ -115,10 +122,10 @@ int main() {
 	  }
 	  i++;
 	}
-	else if(strcmp(input,"DELETE")==0){
-	   cout << "would you like to delete a title or year?" << endl;
+	else if(strcmp(input,"DELETE")==0){ // if the user wants to delete an object
+	   cout << "would you like to delete a title or year?" << endl; 
           cin >> input;
-          if (strcmp(input,"title")==0){
+          if (strcmp(input,"title")==0){ //if the user wants to delete based on a title
             cout << "What title do you want to delete?" << endl;
 	    input[0] = '0';
             cin >> input;
@@ -164,7 +171,7 @@ int main() {
 	    }//dm_Db = NULL
 	  }// for
 	} //if title
-        else if (strcmp(input,"year")==0){
+	  else if (strcmp(input,"year")==0){ //if the user wants to delete based on year
 	    cout << "What year do you want to delete?" << endl;
             cin >> input;
             for(int i = 0; i < 99; i++){
@@ -210,10 +217,10 @@ int main() {
 	}// year
 
 	} //delete
-	else if(strcmp(input,"SEARCH")==0){
+	else if(strcmp(input,"SEARCH")==0){ //if the user wants to search
 	  cout << "would you like to search by title or year?" << endl;
 	  cin >> input;
-	  if (strcmp(input,"title")==0){
+	  if (strcmp(input,"title")==0){ //if the user wants to search by title
 	    cout << "What title are you looking for?" << endl;
 	    cin >> input;
 	    for(int i = 0; i < 99; i++){
@@ -243,7 +250,7 @@ int main() {
 
 	    }
 	  }
-	  else if (strcmp(input,"year")==0){
+	  else if (strcmp(input,"year")==0){ //if the user wants to search by year
 	    cout << "What year are you looking for?" << endl;
 	    int intput;
 	    cin >> intput;
@@ -278,9 +285,9 @@ int main() {
 	  
 	  
 	}
-	else if(strcmp(input,"QUIT")==0){
+	else if(strcmp(input,"QUIT")==0){ //if the user wants to quit
 	  stop = true; //stops while loop
-	    for (int x = 0;x<i; x++){ //for loop to free all Students
+	    for (int x = 0;x<i; x++){ //for loop to delete all objects
 	      delete dm_db[x];
 	    }
 	}

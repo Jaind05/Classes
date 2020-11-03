@@ -5,7 +5,6 @@
 
 class movie : public digital_media
 {
-  //add constructor {id = 1}
  
  public:
   movie();

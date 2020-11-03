@@ -3,29 +3,29 @@
 #include "movie.h"
 
 
-movie::movie(){
+movie::movie(){ //Constructor
   setid(2);
 
 }
-movie::~movie(){
+movie::~movie(){ //Destructor
   setid(-1);
 }
-float movie::getrating(){
+float movie::getrating(){ //Get rating
   return rating;
 }
-int movie::getduration(){
+int movie::getduration(){ //Get duration
   return duration;
 }
-void movie::setduration(int x){
+void movie::setduration(int x){ //Set duration
   duration = x;
 }
-void movie::setrating(float x){
+void movie::setrating(float x){ //Set rating
   rating = x;
 }
-char* movie::getdirector(){
+char* movie::getdirector(){ //get director
   return director;
 }
-void movie::setdirector(char* y){
+void movie::setdirector(char* y){ //set director
   strcpy(director, y);
 }
 

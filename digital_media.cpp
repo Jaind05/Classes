@@ -7,25 +7,25 @@ using namespace std;
 //digital_media::digital_media(){
 //}
 
-char* digital_media::getTitle(){
+char* digital_media::getTitle(){ //Get title
   return title;
 }
 
-int digital_media::getYear(){
+int digital_media::getYear(){ // get year
   return year;
 }
 
-void digital_media::setTitle(char* x){
+void digital_media::setTitle(char* x){ //set title
   strcpy(title, x);
 }
 
-void digital_media::setYear(int y){
+void digital_media::setYear(int y){ //setyear
   year = y;
 }
-void digital_media::setid(int y){
+void digital_media::setid(int y){ //set id
   id = y;
 }
-int digital_media::getid(){
+int digital_media::getid(){ //get id
   return id;
 }
 
